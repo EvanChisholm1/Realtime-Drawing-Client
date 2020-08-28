@@ -20,7 +20,7 @@ export function CanvasPage({ match }) {
 
     return (
         <div className="h-screen overflow-hidden flex flex-col items-center">
-            <h1 className="text-6xl">Invite code: {match.params.id}</h1>
+            <h1 className="text-lg">Invite code: {match.params.id}</h1>
             <button className="p-6 pt-3 pb-3 bg-blue-300 m-5 mt-2 mb-2 rounded-lg" onClick={copyLink}>invite friends</button>
             <Canvas width={750} height={300} className="border-red-500 border-8 canvas" />
             <AnimatePresence>
