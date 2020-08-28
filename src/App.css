@@ -1,0 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
+.canvas {
+    width: 100vw;
+}
