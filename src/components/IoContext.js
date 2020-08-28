@@ -34,7 +34,7 @@ export function IoProvider({ children }) {
             console.log('changing id')
             setRoomId(id);
             socket.emit('change id', id);
-        }, [])
+        }, [id])
     }
 
     return(
