@@ -8,6 +8,8 @@ export function Canvas({ width, height, className }) {
 
     const canvas = useRef(); 
     const ctx = useCanvas(canvas, onDraw)
+
+    // I use this hook to draw on the canvas whenever there is websocket event for It
     useEffect(() => {
         onStrokeEvent(ctx);
     })

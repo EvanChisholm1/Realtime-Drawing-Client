@@ -7,15 +7,18 @@ export default function Home() {
 
     const [textInput, setTextInput] = useState('');
 
+    // when I create a room I generate a uuid and push the current user to that url
     function createRoom() {
         const roomId = uuid();
         history.push(`/${roomId}`);
     }
 
+    // when you submit the form it sends you to the room of the code you entered
     function joinRoom() {
         history.push(`/${textInput}`)
     }
 
+    // simple function for handling my input
     function handleChange(e) {
         setTextInput(e.currentTarget.value)
     }

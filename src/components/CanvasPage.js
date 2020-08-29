@@ -8,10 +8,13 @@ export function CanvasPage({ match }) {
     const [isMessageShown, setIsMessageShown] = useState(false);
 
     const { useChangeId } = useIoContext();
+    // when the page loads join the correct websocket room based on your url
     useChangeId(match.params.id);
 
+    // a function that lets you copy the link and share it with friends
     function copyLink() {
         navigator.clipboard.writeText(window.location.href);
+        // we set a flag to true that shows you the link was copied
         setIsMessageShown(true);
         setTimeout(() => {
             setIsMessageShown(false)
@@ -23,8 +26,10 @@ export function CanvasPage({ match }) {
             <h1 className="text-lg">Invite code: {match.params.id}</h1>
             <button className="p-6 pt-3 pb-3 bg-blue-300 m-5 mt-2 mb-2 rounded-lg" onClick={copyLink}>invite friends</button>
             <Canvas width={750} height={300} className="border-red-500 border-8 canvas" />
+            {/* the animate presence component lets us have unmount and mount animations */}
             <AnimatePresence>
                 {isMessageShown && (
+                    // the motion.div component lets us use very fancy animations with framer motion
                     <motion.div
                         initial={{
                             opacity: 0,
